@@ -1,0 +1,163 @@
+[1mdiff --git a/.idea/mixed_vinyl.iml b/.idea/mixed_vinyl.iml[m
+[1mindex 65a2934..99e9368 100644[m
+[1m--- a/.idea/mixed_vinyl.iml[m
+[1m+++ b/.idea/mixed_vinyl.iml[m
+[36m@@ -37,6 +37,11 @@[m
+       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />[m
+       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-exporter" />[m
+       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation-contracts" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/twig-bridge" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/twig-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/extra-bundle" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />[m
+     </content>[m
+     <orderEntry type="inheritedJdk" />[m
+     <orderEntry type="sourceFolder" forTests="false" />[m
+[1mdiff --git a/.idea/php.xml b/.idea/php.xml[m
+[1mindex 3eb7fe0..e6728ed 100644[m
+[1m--- a/.idea/php.xml[m
+[1m+++ b/.idea/php.xml[m
+[36m@@ -44,12 +44,22 @@[m
+       <path value="$PROJECT_DIR$/vendor/symfony/flex" />[m
+       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />[m
+       <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />[m
+[32m+[m[32m      <path value="$PROJECT_DIR$/vendor/twig/twig" />[m
+     </include_path>[m
+   </component>[m
+   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />[m
+   <component name="PhpStanOptionsConfiguration">[m
+     <option name="transferred" value="true" />[m
+   </component>[m
+[32m+[m[32m  <component name="PhpUnit">[m
+[32m+[m[32m    <phpunit_settings>[m
+[32m+[m[32m      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" />[m
+[32m+[m[32m    </phpunit_settings>[m
+[32m+[m[32m  </component>[m
+   <component name="PsalmOptionsConfiguration">[m
+     <option name="transferred" value="true" />[m
+   </component>[m
+[1mdiff --git a/composer.json b/composer.json[m
+[1mindex 6a5aab3..65a8103 100644[m
+[1m--- a/composer.json[m
+[1m+++ b/composer.json[m
+[36m@@ -12,9 +12,10 @@[m
+         "symfony/flex": "^2",[m
+         "symfony/framework-bundle": "6.4.*",[m
+         "symfony/runtime": "6.4.*",[m
+[31m-        "symfony/yaml": "6.4.*"[m
+[31m-    },[m
+[31m-    "require-dev": {[m
+[32m+[m[32m        "symfony/twig-bundle": "6.4.*",[m
+[32m+[m[32m        "symfony/yaml": "6.4.*",[m
+[32m+[m[32m        "twig/extra-bundle": "^2.12|^3.0",[m
+[32m+[m[32m        "twig/twig": "^2.12|^3.0"[m
+     },[m
+     "config": {[m
+         "allow-plugins": {[m
+[1mdiff --git a/composer.lock b/composer.lock[m
+[1mindex aa5bac5..880ab52 100644[m
+[1m--- a/composer.lock[m
+[1m+++ b/composer.lock[m
+[36m@@ -4,7 +4,7 @@[m
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",[m
+         "This file is @generated automatically"[m
+     ],[m
+[31m-    "content-hash": "6c7e3dbdfc97c282707609d966719896",[m
+[32m+[m[32m    "content-hash": "3fad53ef87172218e4739f35646b8b0e",[m
+     "packages": [[m
+         {[m
+             "name": "psr/cache",[m
+[36m@@ -2190,6 +2190,277 @@[m
+             ],[m
+             "time": "2023-11-28T20:41:49+00:00"[m
+         },[m
+[32m+[m[32m        {[m
+[32m+[m[32m            "name": "symfony/translation-contracts",[m
+[32m+[m[32m            "version": "v3.4.0",[m
+[32m+[m[32m            "source": {[m
+[32m+[m[32m                "type": "git",[m
+[32m+[m[32m                "url": "https://github.com/symfony/translation-contracts.git",[m
+[32m+[m[32m                "reference": "dee0c6e5b4c07ce851b462530088e64b255ac9c5"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "dist": {[m
+[32m+[m[32m                "type": "zip",[m
+[32m+[m[32m                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/dee0c6e5b4c07ce851b462530088e64b255ac9c5",[m
+[32m+[m[32m                "reference": "dee0c6e5b4c07ce851b462530088e64b255ac9c5",[m
+[32m+[m[32m                "shasum": ""[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require": {[m
+[32m+[m[32m                "php": ">=8.1"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "type": "library",[m
+[32m+[m[32m            "extra": {[m
+[32m+[m[32m                "branch-alias": {[m
+[32m+[m[32m                    "dev-main": "3.4-dev"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                "thanks": {[m
+[32m+[m[32m                    "name": "symfony/contracts",[m
+[32m+[m[32m                    "url": "https://github.com/symfony/contracts"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "autoload": {[m
+[32m+[m[32m                "psr-4": {[m
+[32m+[m[32m                    "Symfony\\Contracts\\Translation\\": ""[m
+[32m+[m[32m                },[m
+[32m+[m[32m                "exclude-from-classmap": [[m
+[32m+[m[32m                    "/Test/"[m
+[32m+[m[32m                ][m
+[32m+[m[32m            },[m
+[32m+[m[32m            "notification-url": "https://packagist.org/downloads/",[m
+[32m+[m[32m            "license": [[m
+[32m+[m[32m                "MIT"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "authors": [[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Nicolas Grekas",[m
+[32m+[m[32m                    "email": "p@tchwork.com"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Symfony Community",[m
+[32m+[m[32m                    "homepage": "https://symfony.com/contributors"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "description": "Generic abstractions related to translation",[m
+[32m+[m[32m            "homepage": "https://symfony.com",[m
+[32m+[m[32m            "keywords": [[m
+[32m+[m[32m                "abstractions",[m
+[32m+[m[32m                "contracts",[m
+[32m+[m[32m                "decoupling",[m
+[32m+[m[32m                "interfaces",[m
+[32m+[m[32m                "interoperability",[m
+[32m+[m[32m                "standards"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "support": {[m
+[32m+[m[32m                "source": "https://github.com/symfony/translation-contracts/tree/v3.4.0"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "funding": [[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "url": "https://symfony.com/sponsor",[m
+[32m+[m[32m                    "type": "custom"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "url": "https://github.com/fabpot",[m
+[32m+[m[32m                    "type": "github"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",[m
+[32m+[m[32m                    "type": "tidelift"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "time": "2023-07-25T15:08:44+00:00"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m            "name": "symfony/twig-bridge",[m
+[32m+[m[32m            "version": "v6.4.0",[m
+[32m+[m[32m            "source": {[m
+[32m+[m[32m                "type": "git",[m
+[32m+[m[32m                "url": "https://github.com/symfony/twig-bridge.git",[m
+[32m+[m[32m                "reference": "142bc3ad4a61d7eedf7cc21d8ef2bd8a8e7417bf
